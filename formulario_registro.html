@@ -39,7 +39,7 @@
 </head>
 <body>
     <h2>Formulario de Registro</h2>
-    <form>
+    <form action="https://docs.google.com/spreadsheets/d/e/2PACX-1vQWg9JGGQqJczp4OVvIoCWN7kHPO8x4ix01ZnBUb8Zrt7dwuVhn6piHANXwpUHIne21cD8bhzX97rw3/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" method="POST">
         <label for="correo">Correo electrónico:</label>
         <input type="email" id="correo" name="correo" required>
 
@@ -69,5 +69,30 @@
 
         <input type="submit" value="Enviar">
     </form>
+    <script>
+        function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Respuestas");
+
+  var data = [
+    new Date(), 
+    e.parameter.email,
+    e.parameter.nombres,
+    e.parameter.apellidos,
+    e.parameter.cedula,
+    e.parameter.pasaporte,
+    e.parameter.usdt,
+    e.parameter.cuenta,
+    e.parameter.banco,
+    e.parameter.swift
+  ];
+
+  sheet.appendRow(data);
+
+  return ContentService
+    .createTextOutput("OK")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
+    </script>
 </body>
 </html>

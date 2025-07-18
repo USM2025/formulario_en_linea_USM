@@ -2,97 +2,78 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Formulario de Registro</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background-color: #f2f2f2;
-        }
-        form {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: auto;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-        input, label {
-            display: block;
-            width: 100%;
-            margin-bottom: 15px;
-        }
-        input[type="submit"] {
-            width: auto;
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Formulario de Registro</title>
 </head>
 <body>
-    <h2>Formulario de Registro</h2>
-    <form action="https://docs.google.com/spreadsheets/d/e/2PACX-1vQWg9JGGQqJczp4OVvIoCWN7kHPO8x4ix01ZnBUb8Zrt7dwuVhn6piHANXwpUHIne21cD8bhzX97rw3/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" method="POST">
-        <label for="correo">Correo electrónico:</label>
-        <input type="email" id="correo" name="correo" required>
+  <h2>Formulario de Registro</h2>
+  <form action="#" method="POST">
+    <label>Apellidos: <input type="text" name="apellidos" required></label><br>
+    <label>Nombres: <input type="text" name="nombres" required></label><br>
+    <label>Número de cédula: <input type="text" name="cedula" required></label><br>
+    <label>Número de pasaporte: <input type="text" name="pasaporte"></label><br>
+    <label>Usuario de Telegram: <input type="text" name="telegram"></label><br>
+    <label>Correo electrónico: <input type="email" name="correo" required></label><br>
+    <label>Ciudad: <input type="text" name="ciudad"></label><br>
+    <label>Provincia o departamento: <input type="text" name="provincia"></label><br>
+    <label>País: <input type="text" name="pais"></label><br>
+    <label>Nombre del banco: <input type="text" name="banco"></label><br>
+    <label>Nro. de cuenta bancaria: <input type="text" name="cuenta"></label><br>
+    <label>Clase de cuenta: <input type="text" name="clase_cuenta"></label><br>
+    <label>Código SWIFT: <input type="text" name="swift"></label><br>
+    <label>Código IBAN (si aplica, si no coloque N/A): <input type="text" name="iban"></label><br>
+    <label>Dirección o liga de USDT en la red de TRON TRC20: <input type="text" name="usdt"></label><br>
 
-        <label for="nombres">Nombres:</label>
-        <input type="text" id="nombres" name="nombres" required>
+    <label>¿Está usted en el grupo "REDENCIÓN 2025 RIR"?
+      <select name="grupo_redencion">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </label><br>
 
-        <label for="apellidos">Apellidos:</label>
-        <input type="text" id="apellidos" name="apellidos" required>
+    <label>¿Está usted en el grupo "BENDICIÓN GRUPO INFORMACION"?
+      <select name="grupo_bendicion">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </label><br>
 
-        <label for="cedula">Cédula de identidad:</label>
-        <input type="text" id="cedula" name="cedula" required>
+    <label>¿Está usted en el grupo "PROMOCIÓN PINES Y MEMBRESIA"?
+      <select name="grupo_pines">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </label><br>
 
-        <label for="pasaporte">Pasaporte:</label>
-        <input type="text" id="pasaporte" name="pasaporte">
+    <label>¿Está usted en el grupo "NOTES PARA LA GASEOSITA"?
+      <select name="grupo_gaseosita">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </label><br>
 
-        <label for="usdt">Billetera USDT (Red TRON/TRC20):</label>
-        <input type="text" id="usdt" name="usdt">
+    <label>¿Está usted en el grupo "E. T. INVERSIONES"?
+      <select name="grupo_inversiones">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </label><br>
 
-        <label for="cuenta">Cuenta bancaria:</label>
-        <input type="text" id="cuenta" name="cuenta">
+    <label>¿Está usted en el grupo "INFORMACIÓN U.S.M."?
+      <select name="grupo_usm">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </label><br>
 
-        <label for="banco">Nombre del banco:</label>
-        <input type="text" id="banco" name="banco">
+    <label>¿Está usted en el grupo "PARTICIPANTES DE PERGAMINOS"?
+      <select name="grupo_pergaminos">
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </label><br>
 
-        <label for="swift">Código SWIFT:</label>
-        <input type="text" id="swift" name="swift">
-
-        <input type="submit" value="Enviar">
-    </form>
-    <script>
-        function doPost(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Respuestas");
-
-  var data = [
-    new Date(), 
-    e.parameter.email,
-    e.parameter.nombres,
-    e.parameter.apellidos,
-    e.parameter.cedula,
-    e.parameter.pasaporte,
-    e.parameter.usdt,
-    e.parameter.cuenta,
-    e.parameter.banco,
-    e.parameter.swift
-  ];
-
-  sheet.appendRow(data);
-
-  return ContentService
-    .createTextOutput("OK")
-    .setMimeType(ContentService.MimeType.TEXT);
-}
-
-    </script>
+    <button type="submit">Enviar</button>
+  </form>
 </body>
 </html>
